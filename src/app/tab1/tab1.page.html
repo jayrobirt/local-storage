@@ -4,6 +4,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <!--Muetra un segmento con un segment-button para cada una de las categorias existentes-->
+ <ion-segment class="horizontal-segment" [scrollable]="true" >
+    <ion-segment-button *ngFor="let category of getCategorias()" (click)="manageArticles.getArciclesFromRest(category)" >
+      {{category}}
+    </ion-segment-button >
+</ion-segment>
   <ion-list *ngFor="let article of manageArticles.getArticles()">
     <ion-card>
       <ion-card-header>
